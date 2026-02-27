@@ -1,10 +1,9 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 model Secret {
@@ -12,6 +11,6 @@ model Secret {
   name      String
   content   String
   points    Int      @default(0)
-  createdAt DateTime @default(now())
   revealed  Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
