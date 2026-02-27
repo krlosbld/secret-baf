@@ -1,0 +1,17 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+model Secret {
+  id        String   @id @default(cuid())
+  name      String
+  content   String
+  points    Int      @default(0)
+  createdAt DateTime @default(now())
+  revealed  Boolean  @default(false)
+}
